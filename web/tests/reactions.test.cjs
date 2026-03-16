@@ -2,6 +2,7 @@
 
 const assert = require("node:assert/strict");
 
+const {make_reaction} = require("./lib/example_reaction.cjs");
 const {make_realm} = require("./lib/example_realm.cjs");
 const {make_user} = require("./lib/example_user.cjs");
 const {mock_esm, set_global, zrequire} = require("./lib/namespace.cjs");
@@ -16,7 +17,7 @@ const alice_user_id = 5;
 const sample_message = {
     id: 1001,
     reactions: [
-        {emoji_name: "smile", user_id: 5, reaction_type: "unicode_emoji", emoji_code: "1f604"},
+        make_reaction({emoji_name: "smile", user_id: 5}),
         {emoji_name: "smile", user_id: 6, reaction_type: "unicode_emoji", emoji_code: "1f604"},
         {emoji_name: "frown", user_id: 7, reaction_type: "unicode_emoji", emoji_code: "1f641"},
 
